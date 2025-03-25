@@ -1,6 +1,7 @@
 import unittest
 from app import app
 
+
 class TestApp(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
@@ -11,5 +12,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data, b"Hello BITS Pilani!")
 
+
 if __name__ == '__main__':
     unittest.main()
+    

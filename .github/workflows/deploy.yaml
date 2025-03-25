@@ -14,7 +14,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t web_app .
+          docker build -t mywebapp .
 
       - name: Deploy to Minikube
         run: |

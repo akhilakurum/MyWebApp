@@ -34,7 +34,7 @@ jobs:
           flake8 .
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v1
         with:
           projectBaseDir: .
         env:

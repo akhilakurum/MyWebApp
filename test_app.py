@@ -10,7 +10,7 @@ class TestApp(unittest.TestCase):
     def test_home(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.data, b"Hello BITS Pilani! making this change.")
+        self.assertEqual(response.data, b"Hello BITS Pilani! making change.")
 
 
 if __name__ == '__main__':

@@ -38,11 +38,13 @@ jobs:
           java-version: "17"
           distribution: "temurin"
 
+      - name: Set JAVA_HOME
+        run: echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v1
         with:
           projectBaseDir: .
-          java-version: "17"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io

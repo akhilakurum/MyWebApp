@@ -38,8 +38,10 @@ jobs:
           java-version: "17"
           distribution: "temurin"
 
-      - name: Set JAVA_HOME
-        run: echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
+      - name: Verify Java Version
+        run: |
+          echo "JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" >> $GITHUB_ENV
+          java -version
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v1

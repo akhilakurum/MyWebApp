@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-test-lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -28,3 +28,14 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest discover
+
+      - name: Lint with flake8
+        run: |
+          flake8 .
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: .
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
